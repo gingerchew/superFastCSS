@@ -1,17 +1,19 @@
 <?php
-
 $links = $modx->getOption('links',$scriptProperties,'');
 
 $links = explode(',', $links);
 $noscripts = '<noscript>';
 
 foreach($links as &$link) {
-    $link = gettype($link) === 'integer' ? $modx->makeUrl($link) : $link;
-    $link = "<link href='${link}' rel='preload' onload='this.onload=null;this.rel=\"stylesheet\"/>";
-    $noscripts += "<link href='${link}' rel='stylesheet'/>";
+    if (gettype(intval($link)) === "integer" && intval($link) !== NULL) {
+        $link = $modx->makeUrl($link);
+    }
+    $nslink = $link;
+    $link = "<link href='${link}' rel=preload as=style onload='this.onload=null;this.rel=\"stylesheet\"'/>";
+    $noscripts = $noscripts . "<link href='${nslink}' rel=stylesheet/>";
 }
 
-$noscripts += '</noscript>';
+$noscripts = $noscripts . '</noscript>';
 
 $links = implode('',$links);
 
