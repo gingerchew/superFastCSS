@@ -1,7 +1,8 @@
 <?php
 $links = $modx->getOption('links',$scriptProperties,'');
-
+$ids = $modx->getOption('ids',$scriptProperties,'');
 $cdn = $modx->getOption('cdn', $scriptProperties, '');
+
 $cdndomain = preg_match("/http(s)?\:\/\/.*.com\//", $cdn, $matches);
 $cdn = "<link rel='dns-prefetch' href='${cdndomain}'/>" . "<link rel='preconnect' href='${cdndomain}'/>";
 
