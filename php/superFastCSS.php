@@ -5,7 +5,7 @@ $links = explode(',', $links);
 $noscripts = '<noscript>';
 
 foreach($links as &$link) {
-    if (gettype(intval($link)) === "integer" && intval($link) !== NULL) {
+    if (intval($link) !== 0) {
         $link = $modx->makeUrl($link);
     }
     $noscripts = $noscripts . "<link href='${link}' rel=stylesheet/>";
