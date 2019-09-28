@@ -6,7 +6,18 @@ $cdn = $modx->getOption('cdn', $scriptProperties, '');
 $cdndomain = preg_match("/http(s)?\:\/\/.*.com\//", $cdn, $matches);
 $cdn = "<link rel='dns-prefetch' href='${cdndomain}'/>" . "<link rel='preconnect' href='${cdndomain}'/>";
 
-$links = explode(',', $links);
+
+if (!is_null($links) && is_string($links)) {
+    $links = explode(',', $links);
+}
+
+if (!is_null($ids)) {
+    $ids = explode(',', $links);
+    foreach($ids as &$id) {
+        $id = $this->$modx->getObject('modResource',$id);
+
+    }
+}
 $noscripts = '<noscript>';
 
 foreach($links as &$link) {
