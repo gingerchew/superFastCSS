@@ -8,7 +8,6 @@ foreach($links as &$link) {
     if (gettype(intval($link)) === "integer" && intval($link) !== NULL) {
         $link = $modx->makeUrl($link);
     }
-    $nslink = $link;
     $link = "<link href='${link}' rel=preload as=style onload='this.onload=null;this.rel=\"stylesheet\"'/>";
     $noscripts = $noscripts . "<link href='${nslink}' rel=stylesheet/>";
 }
