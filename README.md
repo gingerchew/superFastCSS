@@ -5,7 +5,7 @@ Per the suggestion of [The Filament Group](https://github.com/filamentgroup/load
 
 To do that, you would write out a link that looks something like this:
 ```html
-<link rel="preload" as="style" href="..." onload="this.onload=null;this.rel='stylesheet'/>
+<link rel="preload" as="style" href="..." onload="this.onload=null;this.rel='stylesheet'"/>
 <!-- Don't forget to include a fallback -->
 <noscript>
     <link rel="stylesheet" href="..."/>
