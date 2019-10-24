@@ -1,4 +1,10 @@
 <?php
+/* 
+ * MPL v2.0
+ * Mozilla Public License
+ *
+ */
+
 $links = $modx->getOption('links',$scriptProperties,'');
 $ids = $modx->getOption('ids',$scriptProperties,'');
 $cdn = $modx->getOption('cdn', $scriptProperties, '');
