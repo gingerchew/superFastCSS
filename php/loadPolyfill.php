@@ -1,4 +1,9 @@
 <?php
+/**
+ * loadPolyfill
+ *
+ * Creates a local copy of Filament Groups rel="preload" polyfill
+ */
 $modx->getService('fileHandler','modFileHandler');
 $file = $modx->fileHandler->make('/assests/js/polyfill/');
 if (!$file->create('cssrelpreload.min.js')) {
