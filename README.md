@@ -1,4 +1,4 @@
-# superFastCSS
+# superFastCSS 🚗💨
 A MODx snippet to load css (resouces and files) fast using modern html practices.
 
 Per the suggestion of [The Filament Group](https://github.com/filamentgroup/loadCSS#how-to-use-loadcss-recommended-example), you should be preloading your CSS links whenever possible (basically all the time).
