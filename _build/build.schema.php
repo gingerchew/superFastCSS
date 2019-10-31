@@ -7,14 +7,14 @@ $modx->loadClass('transport.modPackageBuilder','',false, true);
 $modx->setLogLevel(modX::LOG_LEVEL_INFO);
 $modx->setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 $sources = array(
-    'model' => $modx->getOption('doodles.core_path').'model/',
-    'schema_file' => $modx->getOption('doodles.core_path').'model/schema/superFastCSS.mysql.schema.xml'
+    'model' => $modx->getOption('sfcss.core_path').'model/',
+    'schema_file' => $modx->getOption('sfcss.core_path').'model/schema/superFastCSS.mysql.schema.xml'
 );
 $manager= $modx->getManager();
 $generator= $manager->getGenerator();
 if (!is_dir($sources['model'])) { $modx->log(modX::LOG_LEVEL_ERROR,'Model directory not found!'); die(); }
 if (!file_exists($sources['schema_file'])) { $modx->log(modX::LOG_LEVEL_ERROR,'Schema file not found!'); die(); }
 $generator->parseSchema($sources['schema_file'],$sources['model']);
-$modx->addPackage('doodles', $sources['model']); // add package to make all models available
-$manager->createObjectContainer('Doodle'); // created the database table
+$modx->addPackage('superFastCSS', $sources['model']); // add package to make all models available
+$manager->createObjectContainer('superFastCSS'); // created the database table
 $modx->log(modX::LOG_LEVEL_INFO, 'Done!');
