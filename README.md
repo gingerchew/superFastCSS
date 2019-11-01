@@ -1,19 +1,34 @@
-# superFastCSS 🚗💨
-A MODx snippet to load css (resouces and files) fast using modern html practices.
+## Quick start
 
-Per the suggestion of [The Filament Group](https://github.com/filamentgroup/loadCSS#how-to-use-loadcss-recommended-example), you should be preloading your CSS links whenever possible (basically all the time).
+* Install MODX Revolution
 
-To do that, you would write out a link that looks something like this:
-```html
-<link rel="preload" as="style" href="..." onload="this.onload=null;this.rel='stylesheet'"/>
-<!-- Don't forget to include a fallback -->
-<noscript>
-    <link rel="stylesheet" href="..."/>
-</noscript>
+* Upload this package into the `Extras` directory in the root of site
+
+* You need to rename it to `anyOtherName` your package, so enter into SSH console and run
 ```
-
-As projects expand, this can get tedious. To simplify things, I made this snippet. It's still a work in progress, but should work.
-
+php ~/www/Extras/modExtra/rename_it.php anyOtherName
 ```
-[[superFastCSS? &links=`https://cdnjs.cloudflare.com/...,18,29,103`]]
+*path on your site may differs*
+
+* Then install it on dev site
 ```
+php ~/www/Extras/anyOtherName/_build/build.php
+``` 
+
+## Settings
+
+See `_build/config.inc.php` for editable package options.
+
+All resolvers and elements are in `_build` path. All files that begins not from `.` or `_` will be added automatically. 
+
+If you will add a new type of element, you will need to add the method with that name into `build.php` script as well.
+
+## Build and download
+
+You can build package at any time by opening `http://dev.site.com/Extras/anyOtherName/_build/build.php`
+
+If you want to download built package - just add `?download=1` to the address.
+
+## Example deploy settings
+
+[![](https://file.modx.pro/files/3/a/b/3ab2753b9e8b6c09a4ca0da819db37b6s.jpg)](https://file.modx.pro/files/3/a/b/3ab2753b9e8b6c09a4ca0da819db37b6.png) [![](https://file.modx.pro/files/c/1/a/c1afbb8988ab358a0b400cdcdb0391d4s.jpg)](https://file.modx.pro/files/c/1/a/c1afbb8988ab358a0b400cdcdb0391d4.png)
